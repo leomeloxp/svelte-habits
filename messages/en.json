@@ -1,4 +1,5 @@
 {
   "$schema": "https://inlang.com/schema/inlang-message-format",
-  "hello_world": "Hello, {name} from en!"
+  "app_name": "Svelte Habits",
+  "app_description": "Welcome to Svelte Habits, the habit tracking app that helps you build and maintain good habits! Track your progress, stay motivated, and achieve your goals with ease."
 }

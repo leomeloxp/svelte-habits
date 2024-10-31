@@ -1,1 +1,11 @@
-// place files you want to import through the `$lib` alias in this folder.
+export function loginPath() {
+  return '/login';
+}
+
+export function logoutPath() {
+  return '/logout';
+}
+
+export function habitsPath() {
+  return '/habits';
+}

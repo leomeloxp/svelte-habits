@@ -1,4 +1,5 @@
 {
   "$schema": "https://inlang.com/schema/inlang-message-format",
-  "hello_world": "Hello, {name} from pt!"
+  "app_name": "Svelte Habits",
+  "app_description": "Bem-vindo ao Svelte Habits, o aplicativo de rastreamento de hábitos que ajuda você a construir e manter bons hábitos! Acompanhe seu progresso, mantenha-se motivado e alcance seus objetivos com facilidade."
 }

@@ -1,16 +1,17 @@
-import { hash, verify } from '@node-rs/argon2';
-import { generateRandomString } from '@oslojs/crypto/random';
-import { fail, redirect } from '@sveltejs/kit';
-import { eq } from 'drizzle-orm';
 import { dev } from '$app/environment';
+import { habitsPath } from '$lib';
 import * as auth from '$lib/server/auth';
 import { db } from '$lib/server/db';
 import * as table from '$lib/server/db/schema';
+import { hash, verify } from '@node-rs/argon2';
+import { fail, redirect } from '@sveltejs/kit';
+import { eq } from 'drizzle-orm';
+import { v4 as uuid } from 'uuid';
 import type { Actions, PageServerLoad } from './$types';
 
 export const load: PageServerLoad = async (event) => {
   if (event.locals.user) {
-    return redirect(302, '/demo/lucia');
+    return redirect(302, habitsPath());
   }
   return {};
 };
@@ -54,7 +55,7 @@ export const actions: Actions = {
       secure: !dev
     });
 
-    return redirect(302, '/demo/lucia');
+    return redirect(302, habitsPath());
   },
   register: async (event) => {
     const formData = await event.request.formData();
@@ -68,7 +69,7 @@ export const actions: Actions = {
       return fail(400, { message: 'Invalid password' });
     }
 
-    const userId = generateUserId();
+    const userId = uuid();
     const passwordHash = await hash(password, {
       // recommended minimum parameters
       memoryCost: 19456,
@@ -89,17 +90,12 @@ export const actions: Actions = {
         secure: !dev
       });
     } catch (e) {
+      console.error('e', e);
       return fail(500, { message: 'An error has occurred' });
     }
-    return redirect(302, '/demo/lucia');
+    return redirect(302, habitsPath());
   }
 };
-
-const alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_';
-
-function generateUserId(length = 21): string {
-  return generateRandomString({ read: (bytes) => crypto.getRandomValues(bytes) }, alphabet, length);
-}
 
 function validateUsername(username: unknown): username is string {
   return (

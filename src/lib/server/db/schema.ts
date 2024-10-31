@@ -36,5 +36,6 @@ export const habitEvent = sqliteTable('habit_event', {
 });
 
 export type Session = typeof session.$inferSelect;
-
+export type Habit = typeof habit.$inferSelect;
+export type HabitEvent = typeof habitEvent.$inferSelect;
 export type User = typeof user.$inferSelect;
