@@ -1,38 +1,28 @@
-# sv
+# Svelte Habits
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+A lightweight habit tracker built with SvelteKit and Svelte 5.
 
-## Creating a project
-
-If you're seeing this, you've probably already done this step. Congrats!
+## Running the project
 
 ```bash
-# create a new project in the current directory
-npx sv create
-
-# create a new project in my-app
-npx sv create my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
+npm install
+npm run db:push
 npm run dev -- --open
 ```
 
-## Building
+## Screenshots
 
-To create a production version of your app:
+<details>
+<summary>Home page with language selection</summary>
+<img alt="Home page with language selection" src="./docs/home.png" width="300" />
+</details>
 
-```bash
-npm run build
-```
+<details>
+<summary>Habit list</summary>
+<img alt="Habit list" src="./docs/habit-list.png" width="300" />
+</details>
 
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+<details>
+<summary>Habit entries</summary>
+<img alt="Habit entries" src="./docs/habit-entries.png" width="300" />
+</details>
