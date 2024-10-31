@@ -5,7 +5,7 @@
   let { form }: { form: ActionData } = $props();
 </script>
 
-<main class="mx-auto max-w-3xl pt-3">
+<main class="mx-auto max-w-3xl p-4">
   <h1 class="mb-6 text-center text-3xl font-bold">Login or Sign up</h1>
   <form method="post" action="?/login" use:enhance class="space-y-4">
     <div>
